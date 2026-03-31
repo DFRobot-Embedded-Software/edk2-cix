@@ -28,7 +28,7 @@ AcpiHookFunctionOnReadyToBoot (
 {
   EFI_STATUS          Status = EFI_SUCCESS;
   CIX_PLATFORM_CONFIG_PARAMS_MANAGE_PROTOCOL  *PlatformConfigManage;
-  CHAR8               *SsdtTableId = "ORIONO6";
+  CHAR8               *SsdtTableId = "CD8180";
   CHAR16 *            SystemProductName;
   RADXA_SETUP_DATA    RadxaSetupVar;
   UINTN               VarSize;
@@ -54,7 +54,7 @@ AcpiHookFunctionOnReadyToBoot (
 
   SystemProductName = (CHAR16 *)FixedPcdGetPtr (PcdSystemProductName);
 
-  if (!StrCmp (L"Radxa Orion O6", SystemProductName)) {
+  if (!StrCmp (L"DFRobot CD8180", SystemProductName)) {
     Status = UpdateSsdtNameAslCode ((UINT8 *) SsdtTableId, AsciiStrLen (SsdtTableId), SIGNATURE_32 ('E', 'C', 'F', 'M'), &(PlatformConfigManage->Data->EcFanMode), sizeof (PlatformConfigManage->Data->EcFanMode));
     if (EFI_ERROR (Status)) {
       DEBUG ((DEBUG_ERROR, "%a: Update ECFM failed, Status=%r\n", __FUNCTION__, Status));

@@ -8,6 +8,10 @@ include /usr/share/dpkg/pkg-info.mk
 include /usr/share/dpkg/architecture.mk
 -include .github/local/rules.local
 
+# Guard against accidental positional args (e.g. a path) being appended to dh.
+# Only keep values that look like proper dh options (start with '-').
+EXTRA_DH_OPTIONS := $(filter -%,$(EXTRA_DH_OPTIONS))
+
 %:
 	dh $@ $(EXTRA_DH_OPTIONS)
 

@@ -54,7 +54,7 @@ LibResetSystem (
   switch (ResetType) {
     case EfiResetPlatformSpecific:
       // Map the platform specific reset as reboot
-      if (!StrCmp (L"Radxa Orion O6", SystemProductName)) {
+      if (!StrCmp (L"DFRobot CD8180", SystemProductName)) {
         Params.Reserved = 0;
         ForceEcReset (&Params);
 
@@ -75,7 +75,7 @@ LibResetSystem (
       GpioConfig (FixedPcdGet8 (PcdPcieRootPort4PeResetPin), OUTPUT, INOUT_LOW, INTERRUPT_DISABLE, INTERRUPT_TYPE_DEFAULT);
 
       DEBUG ((DEBUG_INFO, "%a: disable additional GPIOs for %a\n", __FUNCTION__, SystemProductName));
-      if (!StrCmp (L"Radxa Orion O6", SystemProductName)) {
+      if (!StrCmp (L"DFRobot CD8180", SystemProductName)) {
         GpioConfig (10, OUTPUT,  INOUT_LOW, INTERRUPT_DISABLE, INTERRUPT_TYPE_DEFAULT);  //  output low of LOM_PWREN
         GpioConfig (12, OUTPUT,  INOUT_LOW, INTERRUPT_DISABLE, INTERRUPT_TYPE_DEFAULT);  //  output low of M2_SSD_PWREN
         GpioConfig (13, OUTPUT,  INOUT_LOW, INTERRUPT_DISABLE, INTERRUPT_TYPE_DEFAULT);  //  output low of WLAN_PWREN

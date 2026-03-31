@@ -190,7 +190,7 @@ InitializeHardwareInfoWithEC (
   BoardID.Bits.PcbSku = EcResponse.BoardId.Id.Sku + (EcResponse.BoardId.Id.SkuExt << 3);
   switch (BoardID.Bits.PcbSku) {
     case 4:
-      HiiSetString (HiiHandle, STRING_TOKEN (STR_PCB_SKU_VALUE), L"Radxa Orion O6", NULL);
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_PCB_SKU_VALUE), L"DFRobot CD8180", NULL);
       break;
     default:
       AsciiSPrint ((CHAR8 *)DateBuf, sizeof (DateBuf), "Undefined (%d)", BoardID.Bits.PcbSku);
@@ -313,14 +313,15 @@ InitializeHardwareInfoWithGPIO (
     HiiSetString (HiiHandle, STRING_TOKEN (STR_PD_VER_VALUE), L"Undefined", NULL);
   }
 
-  if (!StrCmp (L"Radxa Orion O6T", SystemProductName)) {
+  if (!StrCmp (L"DFRobot CD8180T", SystemProductName)) {
     Status = GpioGetMultiple ((UINT32[]){49, 50}, 2, &MemType);
     if (EFI_ERROR (Status)) {
       DEBUG ((DEBUG_ERROR, "%a: GpioGetMultiple failed: %r\n", __FUNCTION__, Status));
       return;
     }
     Decode2BitMemType (HiiHandle, MemType);
-  } else if (!StrCmp (L"Radxa Orion O6N", SystemProductName)) {
+  } else if (!StrCmp (L"DFRobot CD8180N", SystemProductName) ||
+             !StrCmp (L"Radxa Orion O6N", SystemProductName)) {
     Status = GpioGetMultiple ((UINT32[]){49, 50, 57, 60}, 4, &MemType);
     if (EFI_ERROR (Status)) {
       DEBUG ((DEBUG_ERROR, "%a: GpioGetMultiple failed: %r\n", __FUNCTION__, Status));
@@ -328,7 +329,7 @@ InitializeHardwareInfoWithGPIO (
     }
     Decode4BitMemType (HiiHandle, MemType);
   } else {
-    DEBUG ((DEBUG_ERROR, "%a: Unknown product: %a\n", __FUNCTION__, SystemProductName));
+    DEBUG ((DEBUG_ERROR, "%a: Unknown product: %s\n", __FUNCTION__, SystemProductName));
     HiiSetString (HiiHandle, STRING_TOKEN (STR_MEMORY_TYPE_VALUE), L"Internal Error", NULL);
   }
 }

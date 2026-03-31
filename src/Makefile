@@ -23,8 +23,9 @@ GCC5_AARCH64_PREFIX := aarch64-linux-gnu-
 endif
 
 PACKAGE_TOOL := edk2-non-osi/Platform/CIX/Sky1/PackageTool
-DSC := $(shell find edk2-platforms/Platform/DFRobot -mindepth 3 -maxdepth 3 -name "*.dsc" -type "f") \
-	#    $(shell find edk2-platforms/Platform/CIX -mindepth 3 -maxdepth 3 -name "*.dsc" -type "f")
+# Build only the CD8180 platform by default.
+#    $(shell find edk2-platforms/Platform/CIX -mindepth 3 -maxdepth 3 -name "*.dsc" -type "f")
+DSC := edk2-platforms/Platform/DFRobot/CD8180/CD8180.dsc
 
 CIX_FLASH := $(foreach i, $(patsubst edk2-platforms/Platform/%.dsc,%,$(DSC)), Build/$(lastword $(subst /, ,$(i)))/$(UEFI_TARGET)_GCC5/cix_flash_all.bin) \
 			 $(foreach i, $(patsubst edk2-platforms/Platform/%.dsc,%,$(DSC)), Build/$(lastword $(subst /, ,$(i)))/$(UEFI_TARGET)_GCC5/cix_flash_ota.bin)

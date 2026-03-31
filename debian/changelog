@@ -1,4 +1,4 @@
-edk2-cix (1.2.1) main; urgency=medium
+edk2-cix (0.0.1) main; urgency=medium
 
   [ ZHANG Yuntian ]
   * fix: switch back to native Debian format

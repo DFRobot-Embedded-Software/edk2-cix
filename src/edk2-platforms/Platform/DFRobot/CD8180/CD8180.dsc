@@ -25,15 +25,17 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE|NOOPT
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = Platform/Radxa/Orion/$(PLATFORM_NAME)/$(PLATFORM_NAME).fdf
+  # Point to the DFRobot-provided flash description file.
+  FLASH_DEFINITION               = Platform/DFRobot/CD8180/CD8180.fdf
   PCD_DYNAMIC_AS_DYNAMICEX       = TRUE
-  ACPI_IOMUX_INPUT               = Platform/Radxa/Orion/$(PLATFORM_NAME)/Drivers/AcpiPlatfomTables/RadxaO6Iomux.asl
+  # Use the IOMUX template/ASL coming from this board directory.
+  ACPI_IOMUX_INPUT               = Platform/DFRobot/CD8180/Drivers/AcpiPlatfomTables/RadxaO6Iomux.asl
   ACPI_IOMUX_OUTPUT              = $(OUTPUT_DIRECTORY)/Iomux.asl
   PREBUILD                       = python Platform/CIX/Sky1/Drivers/AcpiSocTables/tool/python3/ParseIomuxTemplate.py $(ACPI_IOMUX_INPUT) $(ACPI_IOMUX_OUTPUT)
 
 !include  Platform/CIX/Sky1/Sky1Define.dsc.inc
-!include  Platform/Radxa/RadxaDefine.dsc.inc
-!include  Platform/Radxa/Platforms/CIX/Sky1/Sky1Define.dsc.inc
+!include  Platform/DFRobot/RadxaDefine.dsc.inc
+!include  Platform/DFRobot/Platforms/CIX/Sky1/Sky1Define.dsc.inc
 
 ################################################################################
 #
@@ -136,8 +138,8 @@
   DEFINE LINUX_ACPI_CONFIG_OVERRIDE = TRUE
 
 !include Platform/CIX/Sky1/Sky1Common.dsc.inc
-!include Platform/Radxa/RadxaCommon.dsc.inc
-!include Platform/Radxa/Platforms/CIX/Sky1/Sky1Common.dsc.inc
+!include Platform/DFRobot/RadxaCommon.dsc.inc
+!include Platform/DFRobot/Platforms/CIX/Sky1/Sky1Common.dsc.inc
 !include NetworkPkg/NetworkDefines.dsc.inc
 
 ################################################################################
@@ -148,8 +150,8 @@
 ################################################################################
 
 [LibraryClasses.common]
-  PlatformConfigParamsHookLib|Platform/Radxa/Orion/O6/Library/PlatformConfigParamsHookLib/PlatformConfigParamsHookLib.inf
-  PlatformEnvHookLib|Platform/Radxa/Orion/O6/Library/PlatformEnvHookLib/PlatformEnvHookLib.inf
+  PlatformConfigParamsHookLib|Platform/DFRobot/CD8180/Library/PlatformConfigParamsHookLib/PlatformConfigParamsHookLib.inf
+  PlatformEnvHookLib|Platform/DFRobot/CD8180/Library/PlatformEnvHookLib/PlatformEnvHookLib.inf
   RealTimeClockLib|Platform/Radxa/Library/Hym8563RealTimeClockLib/Hym8563RealTimeClockLib.inf
 
   PlatformBootHookLib|Platform/CIX/Sky1/Merak/Library/PlatformBootHookLib/PlatformBootHookLib.inf
@@ -204,16 +206,16 @@
 !endif
   Platform/CIX/Sky1/Drivers/DtbUpdateDxeSi/DtbUpdateDxe.inf
 !if $(ACPI_ENABLE) == TRUE
-  Platform/Radxa/Orion/O6/Drivers/AcpiPlatfomTables/AcpiPlatfomTables.inf {
+  Platform/DFRobot/CD8180/Drivers/AcpiPlatfomTables/AcpiPlatfomTables.inf {
     <BuildOptions>
       *_*_*_ASLCC_FLAGS = -I$(WORKSPACE)/$(OUTPUT_DIRECTORY)
   }
-  Platform/Radxa/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  Platform/DFRobot/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
 !endif
 !if $(SMBIOS_ENABLE) == TRUE
-  Platform/Radxa/Orion/O6/Drivers/PlatformSmbios/PlatformSmbios.inf
+  Platform/DFRobot/CD8180/Drivers/PlatformSmbios/PlatformSmbios.inf
 !endif
-  Platform/Radxa/Orion/O6/DeviceTree/DeviceTree.inf
+  Platform/DFRobot/CD8180/DeviceTree/DeviceTree.inf
 
 ###################################################################################################
 # BuildOptions Section - Define the module specific tool chain flags that should be used as
@@ -281,7 +283,7 @@
 
 !if $(LINUX_ACPI_CONFIG_OVERRIDE) == TRUE
   GCC:*_*_*_ASLPP_FLAGS           = -DLINUX_ACPI_CONFIG_OVERRIDE
-  GCC:*_*_*_ASLPP_FLAGS           = -I$(WORKSPACE)/../edk2-platforms/Platform/Radxa/Orion/O6/Drivers
+  GCC:*_*_*_ASLPP_FLAGS           = -I$(WORKSPACE)/../edk2-platforms/Platform/DFRobot/CD8180/Drivers
 !endif
 
 !if $(STMM_SUPPORT) == TRUE

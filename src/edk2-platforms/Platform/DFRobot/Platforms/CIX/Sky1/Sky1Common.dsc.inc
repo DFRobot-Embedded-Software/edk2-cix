@@ -56,7 +56,7 @@
 
   Platform/Radxa/Drivers/Logo/LogoDxe.inf
 
-  Platform/Radxa/Platforms/CIX/Sky1/Drivers/SystemInfoDxe/SystemInfoDxe.inf
+  Platform/DFRobot/Platforms/CIX/Sky1/Drivers/SystemInfoDxe/SystemInfoDxe.inf
 
 !if $(TOKEN_SETUP_SUPPORT) == FALSE
   Platform/CIX/Sky1/Drivers/PlatformSetupVariableInitDxe/PlatformSetupVariableInitDxe.inf
