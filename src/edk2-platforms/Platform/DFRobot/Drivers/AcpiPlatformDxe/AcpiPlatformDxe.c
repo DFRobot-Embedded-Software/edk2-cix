@@ -13,7 +13,7 @@
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Protocol/PlatformConfigParamsManageProtocol.h>
-#include <RadxaSetupVar.h>
+#include <DFRobotSetupVar.h>
 
 EFI_GUID  pAcpiPlatformTableStorageGuid = {
   0xc1bb2ead, 0xc76a, 0x45dd, { 0x90, 0xb5, 0xd4, 0x02, 0x55, 0x17, 0x0a, 0x9c }

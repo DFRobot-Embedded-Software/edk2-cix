@@ -29,12 +29,12 @@
   FLASH_DEFINITION               = Platform/DFRobot/CD8180/CD8180.fdf
   PCD_DYNAMIC_AS_DYNAMICEX       = TRUE
   # Use the IOMUX template/ASL coming from this board directory.
-  ACPI_IOMUX_INPUT               = Platform/DFRobot/CD8180/Drivers/AcpiPlatfomTables/RadxaO6Iomux.asl
+  ACPI_IOMUX_INPUT               = Platform/DFRobot/CD8180/Drivers/AcpiPlatfomTables/CD8180Iomux.asl
   ACPI_IOMUX_OUTPUT              = $(OUTPUT_DIRECTORY)/Iomux.asl
   PREBUILD                       = python Platform/CIX/Sky1/Drivers/AcpiSocTables/tool/python3/ParseIomuxTemplate.py $(ACPI_IOMUX_INPUT) $(ACPI_IOMUX_OUTPUT)
 
 !include  Platform/CIX/Sky1/Sky1Define.dsc.inc
-!include  Platform/DFRobot/RadxaDefine.dsc.inc
+!include  Platform/DFRobot/DFRobotDefine.dsc.inc
 !include  Platform/DFRobot/Platforms/CIX/Sky1/Sky1Define.dsc.inc
 
 ################################################################################
@@ -138,7 +138,7 @@
   DEFINE LINUX_ACPI_CONFIG_OVERRIDE = TRUE
 
 !include Platform/CIX/Sky1/Sky1Common.dsc.inc
-!include Platform/DFRobot/RadxaCommon.dsc.inc
+!include Platform/DFRobot/DFRobotCommon.dsc.inc
 !include Platform/DFRobot/Platforms/CIX/Sky1/Sky1Common.dsc.inc
 !include NetworkPkg/NetworkDefines.dsc.inc
 
@@ -152,7 +152,7 @@
 [LibraryClasses.common]
   PlatformConfigParamsHookLib|Platform/DFRobot/CD8180/Library/PlatformConfigParamsHookLib/PlatformConfigParamsHookLib.inf
   PlatformEnvHookLib|Platform/DFRobot/CD8180/Library/PlatformEnvHookLib/PlatformEnvHookLib.inf
-  RealTimeClockLib|Platform/Radxa/Library/Hym8563RealTimeClockLib/Hym8563RealTimeClockLib.inf
+  RealTimeClockLib|Platform/DFRobot/Library/Hym8563RealTimeClockLib/Hym8563RealTimeClockLib.inf
 
   PlatformBootHookLib|Platform/CIX/Sky1/Merak/Library/PlatformBootHookLib/PlatformBootHookLib.inf
 
@@ -161,7 +161,7 @@
   DtbUpdateLibSi|Platform/CIX/Sky1/Library/DtbUpdateLibSi/DtbUpdateLib.inf
 
 [LibraryClasses.common.DXE_RUNTIME_DRIVER]
-  EfiResetSystemLib|Platform/Radxa/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  EfiResetSystemLib|Platform/DFRobot/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   EcLib|Platform/CIX/Sky1/Library/Ite5570EcLib/Ite5570EcRuntimeLib.inf
 
 ################################################################################

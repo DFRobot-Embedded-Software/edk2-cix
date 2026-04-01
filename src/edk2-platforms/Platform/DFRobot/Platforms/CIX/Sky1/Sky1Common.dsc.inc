@@ -2,7 +2,7 @@
 
   PerformanceLib|MdePkg/Library/BasePerformanceLibNull/BasePerformanceLibNull.inf
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
-  PdEcLib|Platform/Radxa/Library/PdEcLibNull/PdEcLibNull.inf
+  PdEcLib|Platform/DFRobot/Library/PdEcLibNull/PdEcLibNull.inf
 
 !if $(CAPSULE_ENABLE) == FALSE
   EdkiiSystemCapsuleLib|SignedCapsulePkg/Library/EdkiiSystemCapsuleLib/EdkiiSystemCapsuleLib.inf
@@ -54,20 +54,20 @@
   }
 !endif
 
-  Platform/Radxa/Drivers/Logo/LogoDxe.inf
+  Platform/DFRobot/Drivers/Logo/LogoDxe.inf
 
   Platform/DFRobot/Platforms/CIX/Sky1/Drivers/SystemInfoDxe/SystemInfoDxe.inf
 
 !if $(TOKEN_SETUP_SUPPORT) == FALSE
   Platform/CIX/Sky1/Drivers/PlatformSetupVariableInitDxe/PlatformSetupVariableInitDxe.inf
-  Platform/Radxa/Platforms/CIX/Sky1/Drivers/PlatformConfigDxe/PlatformConfigDxe.inf
+  Platform/DFRobot/Platforms/CIX/Sky1/Drivers/PlatformConfigDxe/PlatformConfigDxe.inf
 !endif
 
 !if $(FW_CONFIG_UPDATE_SUPPORT) == TRUE
-  Platform/Radxa/Platforms/CIX/Sky1/Drivers/RadxaSetupVariableInitDxe/RadxaSetupVariableInitDxe.inf
-  Platform/Radxa/Platforms/CIX/Sky1/Drivers/FirmwareConfigUpdateDxe/FirmwareConfigUpdateDxe.inf
+  Platform/DFRobot/Platforms/CIX/Sky1/Drivers/RadxaSetupVariableInitDxe/RadxaSetupVariableInitDxe.inf
+  Platform/DFRobot/Platforms/CIX/Sky1/Drivers/FirmwareConfigUpdateDxe/FirmwareConfigUpdateDxe.inf
 !endif
-  Platform/Radxa/Platforms/CIX/Sky1/Drivers/SeConfigUpdateDxe/SeConfigUpdateDxe.inf
+  Platform/DFRobot/Platforms/CIX/Sky1/Drivers/SeConfigUpdateDxe/SeConfigUpdateDxe.inf
   EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf {
     <LibraryClasses>
       DtPlatformDtbLoaderLib|EmbeddedPkg/Library/DxeDtPlatformDtbLoaderLibDefault/DxeDtPlatformDtbLoaderLibDefault.inf
@@ -110,7 +110,7 @@
       #
       FILE_GUID = $(SYSTEM_FMP_ESRT_GUID)
     <PcdsFixedAtBuild>
-      gFmpDevicePkgTokenSpaceGuid.PcdFmpDeviceImageIdName|L"Radxa System Firmware Device"
+      gFmpDevicePkgTokenSpaceGuid.PcdFmpDeviceImageIdName|L"DFRobot System Firmware Device"
       !include BaseTools/Source/Python/Pkcs7Sign/TestRoot.cer.gFmpDevicePkgTokenSpaceGuid.PcdFmpDevicePkcs7CertBufferXdr.inc
     <LibraryClasses>
       #

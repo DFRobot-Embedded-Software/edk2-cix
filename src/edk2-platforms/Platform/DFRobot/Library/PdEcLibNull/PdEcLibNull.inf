@@ -22,7 +22,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  Platform/Radxa/Radxa.dec
+  Platform/DFRobot/Radxa.dec
 
 [LibraryClasses]
   BaseLib

@@ -9,11 +9,11 @@
 #include <Protocol/EcPlatformProtocol.h>
 
 #define TYPE2_STRINGS                                                                    \
-  "Radxa Computer (Shenzhen) Co., Ltd.\0"   /* Manufacturer */                           \
+  "DFRobot Co., Ltd.\0"                    /* Manufacturer */                             \
   "DFRobot CD8180\0"                        /* Product Name */                           \
   "1.0\0"                              /* Version */                                     \
-  "Radxa Board Serial Number\0"         /* Serial */                                      \
-  "Radxa Board Asset Tag\0"             /* Assert Tag */                                  \
+  "DFRobot Board Serial Number\0"       /* Serial */                                      \
+  "DFRobot Board Asset Tag\0"           /* Assert Tag */                                  \
   "Part Component\0"                   /* board location */
 #pragma pack(1)
 typedef struct {

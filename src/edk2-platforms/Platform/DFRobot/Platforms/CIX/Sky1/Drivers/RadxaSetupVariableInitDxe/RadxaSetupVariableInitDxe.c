@@ -11,7 +11,7 @@
 #include <Library/BaseLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/PcdLib.h>
-#include "../../Include/RadxaSetupVar.h"
+#include "../../Include/DFRobotSetupVar.h"
 
 EFI_STATUS
 EFIAPI

@@ -10,7 +10,7 @@
 #define XSTR(x) #x
 
 #define TYPE0_STRINGS                                                                    \
-  "Radxa Computer (Shenzhen) Co., Ltd.\0" /* Vendor */                                   \
+  "DFRobot Co., Ltd.\0" /* Vendor */                                                     \
   STR (UEFI_FW_VERSION) "\0"                   /* BiosVersion */                              \
   STR (COMPILE_BUILD_DATE) "\0"                /* BiosReleaseDate */
 

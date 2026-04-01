@@ -160,7 +160,7 @@ READ_LOCK_STATUS   = TRUE
   INF Platform/DFRobot/CD8180/Drivers/PlatformSmbios/PlatformSmbios.inf
 !endif
 
-  INF Platform/Radxa/Drivers/RTL8126/RtkUndiDxe.inf
+  INF Platform/DFRobot/Drivers/RTL8126/RtkUndiDxe.inf
 
   INF Platform/DFRobot/CD8180/DeviceTree/DeviceTree.inf
 

@@ -7,10 +7,10 @@
 #include "PlatformSmbios.h"
 
 #define TYPE3_STRINGS                                                                      \
-  "Radxa Computer (Shenzhen) Co., Ltd.\0" /* Manufacturer */                               \
+  "DFRobot Co., Ltd.\0"                  /* Manufacturer */                                \
   "1.0\0"                            /* Version */                                         \
-  "Radxa Serial Number\0"            /* Serial  */                                         \
-  "Radxa Asset Tag\0"              /* Assert Tag */
+  "DFRobot Serial Number\0"          /* Serial  */                                         \
+  "DFRobot Asset Tag\0"              /* Assert Tag */
 
 #pragma pack(1)
 typedef struct {

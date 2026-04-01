@@ -9,10 +9,10 @@
 #include <Protocol/EcPlatformProtocol.h>
 
 #define TYPE1_STRINGS                                                                         \
-  "Radxa Computer (Shenzhen) Co., Ltd.\0"   /* Manufacturer */                                \
+  "DFRobot Co., Ltd.\0"                    /* Manufacturer */                                 \
   "DFRobot CD8180\0"                        /* Product Name */                                \
   "1.0\0"                                   /* Version */                                     \
-  "Radxa System Serial Number\0"            /* Serial number */                               \
+  "DFRobot System Serial Number\0"          /* Serial number */                               \
   "Default\0"                               /* SKUNumber */                                   \
   "CD8180\0"                              /* System Family */
 

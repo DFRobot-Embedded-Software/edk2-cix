@@ -27,7 +27,7 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  Platform/Radxa/Radxa.dec
+  Platform/DFRobot/Radxa.dec
 
 [LibraryClasses]
   BaseLib

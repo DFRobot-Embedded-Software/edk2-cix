@@ -6,7 +6,7 @@
 
 **/
 #include "FirmwareConfigUpdateDxe.h"
-#include "../../Include/RadxaSetupVar.h"
+#include "../../Include/DFRobotSetupVar.h"
 #include <MemConfigurationTable.h>
 #include <Library/ArmSmcLib.h>
 
